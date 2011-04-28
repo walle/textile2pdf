@@ -1,0 +1,14 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    RedCloth (4.2.7)
+    pdfkit (0.5.0)
+    wkhtmltopdf-binary (0.9.5.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  RedCloth
+  pdfkit
+  wkhtmltopdf-binary
