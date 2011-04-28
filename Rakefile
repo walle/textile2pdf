@@ -1,7 +1,10 @@
-require "rake"
+require 'rake'
+
+require 'bundler'
+Bundler::GemHelper.install_tasks
 
 begin
-  require "rspec/core/rake_task"
+  require 'rspec/core/rake_task'
 
   RSpec::Core::RakeTask.new do |t|
     t.rspec_opts = %w(-fd -c)
