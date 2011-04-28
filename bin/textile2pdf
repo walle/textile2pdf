@@ -1,20 +1,16 @@
-#!/usr/bin/env ruby 
+#!/usr/bin/env ruby
 
 require 'bundler/setup'
-require 'pdfkit'
-require 'redcloth'
 
 $LOAD_PATH.unshift(File.expand_path(File.dirname(__FILE__)) + '/../src/')
 
-contents = File.open(ARGV.first, 'rb') { |f| f.read }
-doc = RedCloth.new(contents)
-doc.filter_html = true
-html = doc.to_html
+require 'textile2pdf'
 
-kit = PDFKit.new(html)
+if ARGV.flags.file?
+  Textile2PDF.parse_file(ARGV.flags.file)
+else
+  Dir.glob("*.textile").each do |file|
+    Textile2PDF.parse_file(file)
+  end
+end
 
-stylesheet = 'textile2pdf.css'
-
-kit.stylesheets << stylesheet if File.exists?(stylesheet)
-
-file = kit.to_file('output.pdf')
