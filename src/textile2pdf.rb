@@ -1,3 +1,5 @@
+require 'fileutils'
+
 require 'pdfkit'
 require 'redcloth'
 
@@ -18,8 +20,12 @@ module Textile2PDF
 
     kit.stylesheets << stylesheet if File.exists?(stylesheet)
 
+    output_dir = Dir.getwd
+    output_dir = ARGV.flags.outputdir if ARGV.flags.outputdir?
+    FileUtils.mkdir_p(output_dir) unless File.directory?(output_dir)
+
     filename = File.basename(file, File.extname(file))
-    file = kit.to_file("#{filename}.pdf")
+    file = kit.to_file(File.join(output_dir, "#{filename}.pdf"))
   end
 end
 
