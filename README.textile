@@ -1,0 +1,10 @@
+Simple utillity to convert textile to pdf files.
+
+h2. Installation
+
+Run @gem install textile2pdf@
+
+h2. Usage
+
+Go to a folder with *.textile files and just run @textile2pdf@
+
