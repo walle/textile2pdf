@@ -1,5 +1,7 @@
 Simple utillity to convert textile to pdf files.
 
+A updated version that supports textile, markdown and more exists at "gimli":https://github.com/walle/gimli
+
 h2. Installation
 
 Run @gem install textile2pdf@
